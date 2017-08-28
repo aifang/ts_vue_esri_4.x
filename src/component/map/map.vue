@@ -1,9 +1,9 @@
 <template>
     <div>
         <search :layer="layer"></search>
-        <tools></tools>
+        <!-- <tools></tools>
         <info-search></info-search>
-        <coordinate-value :mapPoint="mapPoint"></coordinate-value>
+        <coordinate-value :mapPoint="mapPoint"></coordinate-value> -->
         <div id="viewDiv" class="big-map"></div>
     </div>
 </template>

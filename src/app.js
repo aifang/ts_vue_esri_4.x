@@ -1,10 +1,12 @@
 import * as Vue from 'vue';
 import * as VueRouter from 'vue-router'
-import * as ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css';
 import routes from './routes'
 
-Vue.use(ElementUI)
+import { Autocomplete, Message } from 'element-ui'
+
+Vue.use(Autocomplete);
+Vue['$message'] = Message
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({

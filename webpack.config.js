@@ -4,9 +4,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // var fs = require('fs');
 
 
+var babelLoader = {
+    loader: 'babel-loader',
+    options: {
+        "presets": [
+            ["es2015", { "modules": false }]
+        ],
+        "plugins": [["component", [
+            {
+                "libraryName": "element-ui",
+                "styleLibraryName": "theme-default"
+            }
+        ]]]
+    }
+};
+
 
 module.exports = {
-    entry: './src/app.ts',
+    entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'build.js',
@@ -17,10 +32,22 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: /node_modules|vue\/src/,
-                loader: 'ts-loader',
-                options: {
-                    appendTsSuffixTo: [/\.vue$/]
-                }
+                use: [
+                    babelLoader,
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            appendTsSuffixTo: [/\.vue$/]
+                        }
+                    }]
+
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    babelLoader
+                ]
             },
             {
                 test: /\.vue$/,

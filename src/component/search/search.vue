@@ -1,4 +1,3 @@
-<script src="search.ts"></script>
 <template>
     <div class="search">
         <el-autocomplete

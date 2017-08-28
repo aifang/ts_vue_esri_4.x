@@ -2,6 +2,10 @@ import * as Vue from 'vue'
 import  { Component, Model, Prop, Watch } from 'vue-property-decorator'
 import esriLoader from 'esri-loader'
 import esri from "esri";
+// import { Autocomplete ,Message} from 'element-ui'
+
+// Vue.use(Autocomplete);
+// Vue['$message'] = Message
 
 Vue.component('my-item-zh', {
     functional: true,
