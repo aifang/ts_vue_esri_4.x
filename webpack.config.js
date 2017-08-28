@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'build.js',
-        sourceMapFilename:'./sourcemaps/build.js.map'
+        sourceMapFilename: './sourcemaps/build.js.map'
     },
     module: {
         rules: [
@@ -69,11 +69,11 @@ module.exports = {
         hints: false
     },
     devtool: '#eval-source-map'
-}
+};
 
 /* 生产环境的配置 */
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
+    module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
@@ -91,7 +91,7 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         }),
         new webpack.BannerPlugin('This file is created by FH')
-    ])
+    ]);
 }
 
 // //拷贝esri库
