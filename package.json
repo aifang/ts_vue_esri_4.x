@@ -4,7 +4,7 @@
   "description": "a ts-vue map",
   "main": "build.js",
   "repository": {
-    "url": "https://github.com/aifang/ts_vue_esri.git"
+    "url": "https://github.com/aifang/ts_vue_esri_4.x.git"
   },
   "scripts": {
     "dev": "gulp & cross-env NODE_ENV=development webpack-dev-server --open --hot & gulp watch",
