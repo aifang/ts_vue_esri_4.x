@@ -43,7 +43,6 @@ module.exports = {
                 loader: 'file-loader'
             },
         ],
-        // noParse: /esri\/map/
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
