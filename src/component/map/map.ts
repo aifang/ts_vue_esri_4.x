@@ -23,15 +23,17 @@ export default class MyComponent extends Vue {
 
     mounted() {
         this.$nextTick(() => {
-            esriLoader.dojoRequire(["esri/Map", "esri/views/MapView", "esri/layers/MapImageLayer"], (Map, MapView,MapImageLayer) => {
+            esriLoader.dojoRequire(["esri/Map", "esri/views/MapView", "esri/layers/MapImageLayer", "esri/views/SceneView",
+                "esri/widgets/Search"], (Map, MapView,MapImageLayer, SceneView, Search) => {
                 this.layer = new MapImageLayer({url: "http://192.168.12.25:6080/arcgis/rest/services/bigData/Img2014/MapServer"});
                 this.mapView = new MapView({
                     container: "viewDiv",
-                    map: new Map({ layers: [this.layer] })
+                    map: new Map({ layers: [this.layer] }),
+                    ui:[]
                 });
-                // this.mapView.on('pointer-move', (evt) => {
-                //     this.mapPoint = evt.mapPoint;
-                // })
+                this.mapView.on('pointer-move', (evt) => {
+                    this.mapPoint = this.mapView.toMap({x: evt.x, y: evt.y});
+                 })
             });
         })
     }

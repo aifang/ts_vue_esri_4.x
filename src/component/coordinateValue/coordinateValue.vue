@@ -1,6 +1,6 @@
 <template>
     <div class="coordinate-value">
-        <div>{{'x:'+mapPoint.x}}&nbsp;{{'y:'+mapPoint.y}}</div>
+        <div>x:{{mapPoint.x}}&nbsp;y:{{mapPoint.y}}</div>
     </div>
 </template>
 <style>
@@ -15,8 +15,7 @@
 export default {
     data() {
         return {
-            xValue: 'dd',
-            yValue: 'ss',
+
         }
     },
     props: {
@@ -29,7 +28,6 @@ export default {
         }
     },
     mounted() {
-
         console.info(this.mapPoint);
     },
     // watch()
