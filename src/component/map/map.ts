@@ -6,6 +6,7 @@ import esri from "esri";
 import tools from "../tools/tools.vue";
 import infoSearch from "../tools/infoSearch/infoSearch.vue";
 import coordinateValue from "../coordinateValue/coordinateValue.vue";
+// import MapView from  "esri/views/MapView";
 
 // @Component 修饰符注明了此类为一个 Vue 组件
 @Component({
@@ -13,28 +14,29 @@ import coordinateValue from "../coordinateValue/coordinateValue.vue";
         "search": search,
         "tools": tools,
         "infoSearch": infoSearch,
-        "coordinateValue":coordinateValue
+        "coordinateValue": coordinateValue
     }
 })
 export default class MyComponent extends Vue {
     mapView: any
     layer: Object = {}
-    mapPoint: Object = {x:'',y:''}
+    mapPoint: Object = { x: '', y: '' }
 
     mounted() {
         this.$nextTick(() => {
             esriLoader.dojoRequire(["esri/Map", "esri/views/MapView", "esri/layers/MapImageLayer", "esri/views/SceneView",
-                "esri/widgets/Search"], (Map, MapView,MapImageLayer, SceneView, Search) => {
-                this.layer = new MapImageLayer({url: "http://192.168.12.25:6080/arcgis/rest/services/bigData/Img2014/MapServer"});
-                this.mapView = new MapView({
-                    container: "viewDiv",
-                    map: new Map({ layers: [this.layer] }),
-                    ui:[]
+                "esri/widgets/Search"], (Map, MapView, MapImageLayer, SceneView, Search) => {
+                    this.layer = new MapImageLayer({ url: "http://192.168.12.25:6080/arcgis/rest/services/bigData/Img2014/MapServer" });
+                    let mapView = new MapView({
+                        container: "viewDiv",
+                        map: new Map({ layers: [this.layer] }),
+                    });
+                    mapView.ui.remove(["attribution", "zoom"]);
+                    this.mapView = mapView;
+                    mapView.on('pointer-move', (evt) => {
+                        this.mapPoint = mapView.toMap({ x: evt.x, y: evt.y });
+                    })
                 });
-                this.mapView.on('pointer-move', (evt) => {
-                    this.mapPoint = this.mapView.toMap({x: evt.x, y: evt.y});
-                 })
-            });
         })
     }
 }
