@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var fs = require('fs');
+// var fs = require('fs');
 
 
 
@@ -9,7 +9,8 @@ module.exports = {
     entry: './src/app.ts',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'build.js'
+        filename: 'build.js',
+        sourceMapFilename:'./sourcemaps/build.js.map'
     },
     module: {
         rules: [
