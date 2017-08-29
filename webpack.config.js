@@ -8,9 +8,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/app.ts',
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'build.js',
-        sourceMapFilename: './sourcemaps/build.js.map'
+        path: path.resolve(__dirname, './dist')
     },
     module: {
         rules: [
@@ -73,7 +71,12 @@ module.exports = {
 
 /* 生产环境的配置 */
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map';
+    //module.exports.devtool = '#source-map';
+    module.exports.output = {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].chunk.js'
+    };
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
@@ -81,14 +84,11 @@ if (process.env.NODE_ENV === 'production') {
                 NODE_ENV: '"production"'
             }
         }),
+
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
             compress: {
                 warnings: false
             }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
         }),
         new webpack.BannerPlugin('This file is created by FH')
     ]);

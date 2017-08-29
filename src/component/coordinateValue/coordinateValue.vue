@@ -1,6 +1,6 @@
 <template>
     <div class="coordinate-value">
-        <div>x:{{mapPoint.x}}&nbsp;y:{{mapPoint.y}}</div>
+        <div class="coordinate-point">x：{{mapPoint.x}}&nbsp;<br>y：{{mapPoint.y}}</div>
     </div>
 </template>
 <style>
@@ -8,7 +8,15 @@
     position: absolute;
     z-index: 4;
     bottom: 5px;
-    left: 5px;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.coordinate-value .coordinate-point{
+    color:#0a36e9;
+    padding: 5px;
+    text-shadow: 0 0 1px #fff;
 }
 </style>
 <script>
@@ -27,9 +35,15 @@ export default {
             }
         }
     },
+    watch:{
+        mapPoint:function(data){
+            data.x=data.x.toFixed(3);
+            data.y=data.y.toFixed(3);
+            return data;
+        }
+    },
     mounted() {
         console.info(this.mapPoint);
-    },
-    // watch()
+    }
 }
 </script>
