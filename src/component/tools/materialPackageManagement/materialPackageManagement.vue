@@ -66,6 +66,11 @@
     .search-tool .el-input{width:100%;}
 </style>
 <script>
+
+import { Pagination,Row, Col, Button, Table,TableColumn,DatePicker,Tabs,TabPane } from 'element-ui'
+Vue.use(Pagination),Vue.use(Row), Vue.use(Col), Vue.use(Button), Vue.use(Table),Vue.use(TableColumn),Vue.use(DatePicker)
+Vue.use(Tabs),Vue.use(TabPane)
+
     export default {
         data() {
             return {

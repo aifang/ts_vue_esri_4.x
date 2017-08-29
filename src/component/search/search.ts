@@ -1,7 +1,10 @@
 import * as Vue from 'vue'
-import  { Component, Model, Prop, Watch } from 'vue-property-decorator'
+import { Component, Model, Prop, Watch } from 'vue-property-decorator'
 import esriLoader from 'esri-loader'
 import esri from "esri";
+
+// import { Autocomplete } from 'element-ui'
+// Vue.use(Autocomplete)
 
 Vue.component('my-item-zh', {
     functional: true,
@@ -108,8 +111,8 @@ export default class search extends Vue {
         this.restaurants = this.loadAll();
     }
     // computed
-    get computedMsg () {
+    get computedMsg() {
         return 'computed ' + this.layer.url
-      }
+    }
 
 }

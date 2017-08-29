@@ -41,6 +41,8 @@
     .paginations{margin-top: 3px;}
 </style>
 <script>
+import { Pagination,Row, Col, Button, Table,TableColumn,Input} from 'element-ui'
+Vue.use(Pagination),Vue.use(Row), Vue.use(Col), Vue.use(Button), Vue.use(Table),Vue.use(TableColumn),Vue.use(Input)
     export default {
         data() {
             return {

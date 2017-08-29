@@ -6,11 +6,11 @@
       "es2015",
       "es2015.promise"
     ],
-    "module": "amd",
+    "module": "es2015",
     "moduleResolution": "node",
     //"noImplicitAny": false,
     "allowJs": true,
-    "target": "es5",
+    "target": "es2016",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -23,6 +23,7 @@
     ],
     "exclude": [
         "node_modules",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "src/gis/**/*.ts"
     ]
 }

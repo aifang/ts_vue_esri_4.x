@@ -23,36 +23,55 @@
     </div>
 </template>
 <style>
-    .tools{position: absolute;width:700px;height:40px;left:50%;top:5px;margin-left:-350px;text-align: center;z-index: 1;}
-    .dialog{text-align: left;}
-    .tools .dialog .el-dialog__body{padding:15px 15px;}
+.tools {
+    position: absolute;
+    width: 700px;
+    height: 40px;
+    left: 50%;
+    top: 5px;
+    margin-left: -350px;
+    text-align: center;
+    z-index: 1;
+}
+
+.dialog {
+    text-align: left;
+}
+
+.tools .dialog .el-dialog__body {
+    padding: 15px 15px;
+}
 </style>
 <script>
-    // import ElDialog from "element-ui/packages/dialog/src/component.vue";
-    import MaterialPackageManagement from "./materialPackageManagement/materialPackageManagement.vue";
-    import PrintOutPicture from "./printOutPicture/printOutPicture.vue";
-    import LandSearch from "./landSearch/landSearch.vue";
-    export default {
-        // components: {ElDialog,MaterialPackageManagement,PrintOutPicture,LandSearch},
-        components: {MaterialPackageManagement,PrintOutPicture,LandSearch},
-        
-        data(){
-            return {
-                materialPackageManagement:false,
-                printOutPicture:false,
-                landDialog:false
-            }
+// import ElDialog from "element-ui/packages/dialog/src/component.vue";
+import MaterialPackageManagement from "./materialPackageManagement/materialPackageManagement.vue";
+import PrintOutPicture from "./printOutPicture/printOutPicture.vue";
+import LandSearch from "./landSearch/landSearch.vue";
+import { Tooltip, Button, Dialog } from 'element-ui'
+Vue.use(Tooltip), Vue.use(Button), Vue.use(Dialog)
+
+
+export default {
+    // components: {ElDialog,MaterialPackageManagement,PrintOutPicture,LandSearch},
+    components: { MaterialPackageManagement, PrintOutPicture, LandSearch },
+
+    data() {
+        return {
+            materialPackageManagement: false,
+            printOutPicture: false,
+            landDialog: false
+        }
+    },
+    methods: {
+        manage() {
+            this.materialPackageManagement = true;
         },
-        methods: {
-            manage(){
-                this.materialPackageManagement=true;
-            },
-            print(){
-                this.printOutPicture=true;
-            },
-            land(){
-                this.landDialog=true;
-            }
+        print() {
+            this.printOutPicture = true;
+        },
+        land() {
+            this.landDialog = true;
         }
     }
+}
 </script>

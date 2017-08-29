@@ -71,7 +71,7 @@ module.exports = {
 
 /* 生产环境的配置 */
 if (process.env.NODE_ENV === 'production') {
-    //module.exports.devtool = '#source-map';
+    module.exports.devtool = false;
     module.exports.output = {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[hash].js',
@@ -86,6 +86,7 @@ if (process.env.NODE_ENV === 'production') {
         }),
 
         new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
             compress: {
                 warnings: false
             }

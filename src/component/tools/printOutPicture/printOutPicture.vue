@@ -14,3 +14,11 @@
         </el-row>
     </div>
 </template>
+<script>
+import { Row, Col, Menu, MenuItem } from 'element-ui'
+Vue.use(Row), Vue.use(Col), Vue.use(Menu), Vue.use(MenuItem)
+
+export default {
+
+}
+</script>
