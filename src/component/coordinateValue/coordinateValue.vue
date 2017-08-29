@@ -21,11 +21,6 @@
 </style>
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
     props: {
         mapPoint: {
             type: Object,
@@ -33,6 +28,11 @@ export default {
                 x: 334442.143534,
                 y: 223355.124556
             }
+        }
+    },
+    data() {
+        return {
+
         }
     },
     watch:{
@@ -43,7 +43,7 @@ export default {
         }
     },
     mounted() {
-        console.info(this.mapPoint);
+
     }
 }
 </script>

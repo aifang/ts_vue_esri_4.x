@@ -20,8 +20,12 @@ import coordinateValue from "../coordinateValue/coordinateValue.vue";
 export default class MyComponent extends Vue {
     mapView: any
     layer: Object = {}
-    mapPoint: Object = { x: '', y: '' }
-
+    mapPoint: Object
+    data(){
+        return {
+            infoSearch:false
+        }
+    }
     mounted() {
         this.$nextTick(() => {
             esriLoader.dojoRequire(["esri/Map", "esri/views/MapView", "esri/layers/MapImageLayer", "esri/views/SceneView",

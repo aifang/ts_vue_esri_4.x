@@ -1,25 +1,25 @@
 <template>
-    <div class="tools">
-        <el-tooltip class="item" effect="light" content="材料包管理" placement="bottom">
-            <el-button type="primary" @click="manage" icon="menu"></el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="light" content="打印出图" placement="bottom">
-            <el-button type="primary" @click="print" icon="picture"></el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="light" content="宗地" placement="bottom">
-            <el-button type="primary" @click="land" icon="d-caret"></el-button>
-        </el-tooltip>
-        <div class="dialog">
-            <el-dialog title="材料包管理" :visible.sync="materialPackageManagement">
-                <material-package-management></material-package-management>
-            </el-dialog>
-            <el-dialog title="打印出图" :visible.sync="printOutPicture">
-                <print-out-picture></print-out-picture>
-            </el-dialog>
-            <el-dialog title="搜索定位" :visible.sync="landDialog" size="small">
-                <land-search></land-search>
-            </el-dialog>
+    <div>
+        <div class="tools">
+            <el-tooltip class="item" effect="light" content="材料包管理" placement="bottom">
+                <el-button type="primary" @click="manage" icon="menu"></el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light" content="打印出图" placement="bottom">
+                <el-button type="primary" @click="print" icon="picture"></el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light" content="宗地" placement="bottom">
+                <el-button type="primary" @click="land" icon="d-caret"></el-button>
+            </el-tooltip>
         </div>
+        <el-dialog title="材料包管理" :visible.sync="materialPackageManagement">
+            <material-package-management></material-package-management>
+        </el-dialog>
+        <el-dialog title="打印出图" :visible.sync="printOutPicture">
+            <print-out-picture></print-out-picture>
+        </el-dialog>
+        <el-dialog title="搜索定位" :visible.sync="landDialog" size="small">
+            <land-search></land-search>
+        </el-dialog>
     </div>
 </template>
 <style>
