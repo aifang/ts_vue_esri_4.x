@@ -2,7 +2,7 @@
     <div>
         <search :layer="layer"></search>
         <tools></tools>
-        <info-search v-if="infoSearch"></info-search>
+        <info-search></info-search>
         <coordinate-value :mapPoint="mapPoint"></coordinate-value>
         <div id="viewDiv" class="big-map"></div>
     </div>
@@ -33,7 +33,7 @@
     export default class MyComponent extends Vue {
         mapView: any
         layer: Object = {}
-        mapPoint: Object
+        mapPoint: Object={}
         infoSearch:false
         mounted() {
             this.$nextTick(() => {
