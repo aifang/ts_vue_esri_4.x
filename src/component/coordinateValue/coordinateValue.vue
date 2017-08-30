@@ -30,11 +30,6 @@ export default {
             }
         }
     },
-    data() {
-        return {
-
-        }
-    },
     watch:{
         mapPoint:function(data){
             data.x=data.x.toFixed(3);
@@ -43,7 +38,6 @@ export default {
         }
     },
     mounted() {
-
     }
 }
 </script>

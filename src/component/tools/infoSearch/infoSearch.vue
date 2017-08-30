@@ -52,9 +52,9 @@
     </div>
 </template>
 <style>
-    .info-search{position: fixed;right:-372px;bottom: 0;width:400px;z-index: 3;}
+    .info-search{position:fixed;right:-372px;bottom: 0;width:400px;z-index: 3;}
     .paginations{margin-top: 3px;}
-    .info-search .info-bar{position: absolute;left:0;bottom: 0;}
+    .info-search .info-bar{position: absolute;left:0;bottom: 0;height:97px;width:28px;z-index: 7;}
     .info-bar span{
         cursor: pointer;
         display: block;
