@@ -1,4 +1,4 @@
-import * as Vue from 'vue'
+import Vue from 'vue'
 import Component from 'vue-class-component'
 import esriLoader from 'esri-loader'
 import search from "../search/search.vue";
@@ -21,7 +21,7 @@ import esri from "esri";
 export default class MyComponent extends Vue {
     mapView: any
     layer: Object = {}
-    mapPoint: Object
+    mapPoint: Object={}
     infoSearch:false
     mounted() {
         this.$nextTick(() => {

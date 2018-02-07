@@ -1,12 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 // var fs = require('fs');
 
 
 
 module.exports = {
-    entry: './src/app.ts',
+    entry: {
+        main: './src/app.ts',
+        vendors: './src/vendors.ts'
+    },
     output: {
         path: path.resolve(__dirname, './dist')
     },
@@ -55,6 +59,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: __dirname + "/src/index.html"
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors',
+            filename: 'vendors.js'
+        }),
         new webpack.HotModuleReplacementPlugin()//热加载插件
     ],
     devServer: {
@@ -84,12 +92,9 @@ if (process.env.NODE_ENV === 'production') {
                 NODE_ENV: '"production"'
             }
         }),
-
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
-            compress: {
-                warnings: false
-            }
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors',
+            filename: 'vendors.[hash].js'
         }),
         new webpack.BannerPlugin('This file is created by FH')
     ]);
